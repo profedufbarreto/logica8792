@@ -6,15 +6,13 @@ int main(){
     SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
 
-    int a = 5;
-    int b = 4;
+    int n;
 
-    printf("A soma é: %d\n", (a + b));
-    printf("A subtração é: %d\n", (a - b));
-    printf("A multiplicação é: %d\n", (a * b));
-    printf("A divisão é: %d\n", (a / b));
+    printf("Digite um número: ");
+    scanf("%d", &n);
 
+    printf("Antecessor: %d\n", n - 1);
+    printf("Sucessor: %d\n", n + 1);
     
-
     return 0;
 }
