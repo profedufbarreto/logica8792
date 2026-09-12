@@ -6,13 +6,13 @@ int main(){
     SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
 
-    float raio;
-    const float PI = 3.14159;
+    float celsius, fahrenheit;
 
-    printf("Digite o raio do círculo: ");
-    scanf("%f", &raio);
-    printf("Area: %.2f\n", PI * raio * raio);
-    printf("Perímetro: %.2f\n", 2 * PI * raio);
+    printf("Digite a temperatura em Celsius: ");
+    scanf("%f", &celsius);
+
+    fahrenheit = (celsius * 9.0 / 5.0) + 32;
+    printf("Fahrenheit: %.2f\n", fahrenheit);s
     
     return 0;
 }
