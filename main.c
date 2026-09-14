@@ -11,17 +11,10 @@ int main(){
     printf("Digite um número: ");
     scanf("%d", &n);
 
-    // if(....){
-    //     code..
-    // }
-
-
-    if(n > 0){
-        printf("Positivo\n");
-    }else if(n < 0){
-        printf("Negativo\n");
+    if(n % 2 == 0){
+        printf("\nPar");
     }else{
-        printf("Igual 0");
+        printf("\nÍmpar");
     }
     
     return 0;
