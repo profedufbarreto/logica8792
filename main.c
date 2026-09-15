@@ -6,12 +6,16 @@ int main(){
     SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
 
-    int n;
+    int a, b;
 
-    printf("Digite um número: ");
-    scanf("%d", &n);
+    printf("Digite dois números: ");
+    scanf("%d %d", &a, &b);
 
-    printf("%s", n % 2 == 0 ? "\nPar" : "\nÍmpar");
-    
+    if(a == b){
+        printf("Os números são iguais!\n");
+    }else{
+        printf("Os números são diferentes!\n");
+    }
+
     return 0;
 }
