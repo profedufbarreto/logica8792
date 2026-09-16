@@ -6,28 +6,35 @@ int main(){
     SetConsoleCP(65001);
     SetConsoleOutputCP(65001);
 
-    int n1, n2, n3;
-    float media;
-    float freq;
+    int dia;
+    printf("Digite o número de 1 a 7: ");
+    scanf("%d", &dia);
 
-    printf("Digite a nota 1: ");
-    scanf("%d", &n1);
-    
-    printf("\nDigite a nota 2: ");
-    scanf("%d", &n2);
-
-    printf("\nDigite a nota 3: ");
-    scanf("%d", &n3);
-
-    media = (n1 + n2 + n3) / 3;
-
-    printf("Digite a frequência (em números apenas): ");
-    scanf("%f", &freq);
-
-    if(media >= 7 && freq >= 75){
-        printf("\nAprovado com sucesso!");
-    }else{
-        printf("\nReprovado!");
+    switch(dia){
+        case 1:
+            printf("Domingo!");
+            break;
+        case 2:
+            printf("Segunda-feira");
+            break;
+        case 3:
+            printf("Terça-feira");
+            break;
+        case 4:
+            printf("Quarta-feira");
+            break;
+        case 5:
+            printf("Quinta-feira");
+            break;
+        case 6:
+            printf("Sexta-feira");
+            break;
+        case 7:
+            printf("Sábado");
+            break;
+        default:
+            printf("Número inválido!!");
+            break;
     }
 
     return 0;
