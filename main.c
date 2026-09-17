@@ -1,10 +1,9 @@
 #include<stdio.h>
-#include<windows.h>
+#include<locale.h>
 
 int main(){
 
-    SetConsoleCP(65001);
-    SetConsoleOutputCP(65001);
+    setlocale(LC_ALL, "pt_BR.UTF-8");
 
     int dia;
     printf("Digite o número de 1 a 7: ");
