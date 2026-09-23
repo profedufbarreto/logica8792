@@ -1,20 +1,19 @@
 #include<stdio.h>
 #include<locale.h>
-#include<string.h>
-#include<math.h>
+
+int fatorial(int d){
+    int resultado = 1;
+    for(int i = 1; i < d; i++){
+        resultado *= i; //resultado = resultado * i;
+    }
+    return resultado;
+}
 
 int main(){
-
     setlocale(LC_ALL, "pt_BR.UTF-8");
+    int numero = 5;
+    printf("Fatorial de %d = %d\n", 10, fatorial(10));
 
-    int numero;
-    printf("Digite um número: ");
-    scanf("%d", &numero);
-
-    int quadrado = (int)pow(numero, 2);
-    int cubo = (int)pow(numero, 3);
-    printf("Quadrado de %d = %d\n", numero, quadrado);
-    printf("Cudo de %d = %d", numero, cubo);
 
     return 0;
 }
