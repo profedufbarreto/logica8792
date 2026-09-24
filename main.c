@@ -4,15 +4,16 @@
 int main(){
     setlocale(LC_ALL, "pt_BR.UTF-8");
     
-    int numero;
-    printf("Digite um número positivo: ");
-    scanf("%d", &numero);
+    int n, soma = 0;
 
-    while(numero <= 0){
-        printf("Número inválido! Digite novamente: ");
-        scanf("%d", &numero);
+    printf("Digite um valor para n: ");
+    scanf("%d", &n);
+
+    for(int i = 1; i <= n; i++){
+        soma += i;
     }
-    printf("Número válido: %d\n", numero);
+
+    printf("O resultado da soma é: %d\n", soma);
 
     return 0;
 }
