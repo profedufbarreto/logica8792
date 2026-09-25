@@ -2,7 +2,13 @@
 
 int main(){
 
-    printf("%d\n", 6 > 5);
+    int primo = 0;
+
+    if(primo){
+        printf("Ok\n");
+    }else{
+        printf("Não!\n");
+    }
 
     return 0;
 

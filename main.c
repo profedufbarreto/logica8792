@@ -1,21 +1,24 @@
 #include<stdio.h>
 #include<locale.h>
-
 int main(){
     setlocale(LC_ALL, "pt_BR.UTF-8");
-    
-    int numero, contador = 0;
-
-    printf("Digite números (0 para parar): \n");
-    scanf("%d", &numero);
-
-    while(numero != 0){
-        contador++;
-        scanf("%d", &numero);
+    int n, primo;
+    printf("Digite um número: ");
+    scanf("%d", &n);
+    if(n < 2){
+        primo = 1;
+    }else{
+        for(int i = 2; i <= n / 2; i++){
+            if(n % i == 0){
+                primo = 0;
+                break;
+            }
+        }
     }
-
-    printf("Quantidade de números digitados: %d\n", contador);
-    
-
+    if(primo){
+        printf("%d é primo\n", n);
+    }else{
+        printf("%d não é primo\n", n);
+    }
     return 0;
 }
