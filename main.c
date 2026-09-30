@@ -3,17 +3,19 @@
 
 int main(){
     setlocale(LC_ALL, "pt_BR.UTF-8");
-    int n = 8;
-    
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < n; j++){
-            if((i + j) % 2 == 0){
-                printf("[ ]");
-            }else{
-                printf("[#]");
+    int limite;
+    printf("Digite o limite: ");
+    scanf("%d", &limite);
+    for(int n = 1; n <= limite; n++){
+        int soma = 0;
+        for(int i = 1; i < n; i++){
+            if(n % i == 0){
+                soma += i;
             }
         }
-        printf("\n");
+        if(soma == n & n != 0){
+            printf("%d é um número perfeito\n", n);
+        }
     }
     return 0;
 }
