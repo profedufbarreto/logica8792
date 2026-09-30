@@ -3,25 +3,21 @@
 
 int main(){
     setlocale(LC_ALL, "pt_BR.UTF-8");
-    //2, 3, 5, 7, 11, 13
-    int n, primo = 1;
-    printf("Digite um número: ");
+    int n, contador = 0;
+    printf("Digite o límite N: ");
     scanf("%d", &n);
-
-    if(n < 2){
-        primo = 0;
-    }else{
-        for(int i = 2; i < n; i++){
-            if(n % i == 0){
+    for(int num = 2; num <= n; num++){
+        int primo = 1;
+        for(int i = 2; i < num; i++){
+            if(num % i == 0){
                 primo = 0;
                 break;
             }
         }
+        if(primo){
+            contador++;
+        }
     }
-    if(primo){
-        printf("%d é primo\n", n);
-    }else{
-        printf("%d não é primo\n", n);
-    }
+    printf("Quantidade de primos entre 1 e %d: %d\n", n, contador);
     return 0;
 }
