@@ -3,18 +3,21 @@
 
 int main(){
     setlocale(LC_ALL, "pt_BR.UTF-8");
-    int matriz[3][3] = {
-        {1, 2, 3},
-        {4, 5, 6,},
-        {7, 8, 9}
-    };
-
-    printf("Elementos da matriz:\n");
-    for(int i = 0; i <= 2; i++){
-        for(int j = 0; j <= 2; j++){
-            printf("%d\n", matriz[i][j]);
-        }
+    int n;
+    printf("Digite o tamanho do vetor: ");
+    scanf("%d", &n);
+    int v[n];
+    for(int i = 0; i < n; i++){
+        printf("Digite o valor: ", i + 1);
+        scanf("%d", &v[i]);
     }
+    int maior = v[0], menor = v[0];
+    for(int i = 1; i < n; i++){
+        if(v[i] > maior) maior = v[i];
+        if(v[i] < menor) menor = v[i];
+    }
+    printf("Maior: %d\n", maior);
+    printf("Menor: %d\n", menor);
 
     return 0;
 }
