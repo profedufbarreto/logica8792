@@ -1,3 +1,3 @@
-i = 0
-for(i range 5)
-print(i)
+int i = 0
+for i in range:
+    print(i)
