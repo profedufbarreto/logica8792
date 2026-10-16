@@ -17,7 +17,7 @@ int main(){
     printf("Digite a idade: ");
     scanf("%d", &p1.idade);
     printf("Digite a altura: ");
-    scanf("&.2f", &p1.altura);
+    scanf("%f", &p1.altura);
     printf("\n--- Dados da Pessoa ---\n");
     printf("Nome: %s\n", p1.nome);
     printf("Idade: %d\n", p1.idade);
