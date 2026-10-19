@@ -6,17 +6,13 @@ int main(){
     
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
 
-    int idade;
-    int temIngresso;
-    printf("Digite sua idade: ");
-    scanf("%d", &idade);
-    printf("Possui ingresso? (1 - Sim / 0 - Não)");
-    scanf("%d", &temIngresso);
+    int n;
+    printf("Digite um valor para n: ");
+    scanf("%d", &n);
 
-    if(idade >= 18 && temIngresso){
-        printf("Entrada permitida!\n");
-    }else{
-        printf("Entrada não permitida!\n");
+    while(n >= 0){
+        printf("%d\n", n);
+        n--;
     }
 
     return 0;
