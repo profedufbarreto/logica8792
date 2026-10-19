@@ -6,8 +6,9 @@ int main(){
     
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
 
-    for(int i = 1; i <= 5; i++){
-        printf("%d - Programar\n", i);
+    int portaAberta = 0;
+    if(!portaAberta){
+        printf("A porta está fechada!\n");
     }
 
     return 0;
