@@ -6,13 +6,12 @@ int main(){
     
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
 
-    int n;
+    float nota;
     do{
-        printf("Digite um número (não negativo): ");
-        scanf("%d", &n);
-    }while(n < 0);
-
-    printf("Você digitou: %d\n", n);
+        printf("Digite uma nota (0 a 10): ");
+        scanf("%f", &nota);
+    }while(nota < 0 || nota > 10);
+    printf("Nota Válida: %.1f\n", nota);
 
     return 0;
 }
