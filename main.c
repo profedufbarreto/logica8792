@@ -5,14 +5,24 @@
 int main(){
     
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
-
-    int resposta;
+    setlocale(LC_ALL, "pt-BR.UTF8");
+    int opcao;
     do{
-        printf("Executando o programa..\n");
-        printf("Deseja continuar? (1 - Sim / 0 - Não):");
-        scanf("%d", &resposta);
-    }while(resposta == 1);
-    printf("Programa encerrado!\n");
+        printf("\n--- MENU ---");
+        printf("1 - Dizer olá\n");
+        printf("2 - Dizer tchau\n");
+        printf("0 - Sair\n");
+        printf("Escolha: ");
+        scanf("%d", &opcao);
+        if(opcao == 1){
+            printf("Olá\n");
+        }else if(opcao == 2){
+            printf("Tchau!\n");
+        }else if(opcao != 0){
+            printf("Opção inválida!\n");
+        }
+    }while(opcao != 0);
+    printf("Até mais!\n");
 
     return 0;
 }
