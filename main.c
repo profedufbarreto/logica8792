@@ -1,87 +1,49 @@
 #include<stdio.h>
 #include<string.h>
 #include<locale.h>
-
-#define QTD 5
-void cadastrar(float notas[]){
-    for(int i = 0; i < QTD; i++){
-        printf("Digite a nota do aluno %d: ", i + 1);
-        scanf("%d", &notas[i]);
-    }
-}
-void mostrar(float notas[]){
-    for(int i = 0; i < QTD; i++){
-        printf("Aluno %d: %.1f\n", i + 1, notas[i]);
-    }
-}
-float calcularMedia(float notas[]){
-    float soma = 0;
-    for(int i = 0; i < QTD; i++){
-        soma += notas[i];
-    }
-    return soma / QTD;
-}
-float maiorNota(float notas[]){
-    float maior = notas[0];
-    for(int i = 1; i < QTD; i++){
-        if(notas[i] > maior){
-            maior = notas[i];
-        }
-    }
-    return maior;
-}
+#include<stdlib.h>
+#include<time.h>
 
 int main(){
     
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
     setlocale(LC_ALL, "pt-BR.UTF8");
-    float notas[QTD];
-    int opcao;
-    int cadastrado = 0;
+
+    const int MAX_TENTATIVAS = 7;
+    int tentativas[MAX_TENTATIVAS];
+    int secreto, palpite;
+    int usadas = 0, acertou = 0;
+    srand(time(NULL));
+    secreto = rand() % 100 + 1;
+    printf("Advinhe o número entre 1 e 100.\n");
+    printf("Você tem %d tentativas.\n", MAX_TENTATIVAS);
     do{
-        printf("\n----- CONTROLE DE NOTAS -----\n");
-        printf("1 - Cadastrar notas\n");
-        printf("2 - Mostras notas\n");
-        printf("3 - Média da turma\n");
-        printf("4 - Maior nota\n");
-        printf("0 - Sair\n");
-        printf("Escolha: ");
-        scanf("%d", &opcao);
-        switch (opcao)
-        {
-        case 1:
-            cadastrar(notas);
-            cadastrado = 1;
-            break;
-        case 2:
-            if(cadastrado){
-                mostrar(notas);
+        printf("\nTentativa %d: ", usadas + 1);
+        scanf("%d", &palpite);
+        if(palpite < 1 || palpite > 100){
+            printf("Digite um número entre 1 e 100!\n");
+        }else{
+            tentativas[usadas] = palpite;
+            usadas++;
+            if(palpite == secreto){
+                acertou = 1;
+            }else if(palpite < secreto){
+                printf("O número secreto é MAIOR!\n");
             }else{
-                printf("Nenhuma nota cadastrada ainda.\n");
+                printf("O número secreto é MENOR!\n");
             }
-            break;
-        case 3:
-            if(cadastrado){
-                printf("Média da turma: %.2f\n", calcularMedia(notas));
-            }else{
-                printf("Nenhuma nota cadastrada ainda.\n");
-            }
-            break;
-        case 4:
-            if(cadastrado){
-                printf("Maior nota: %.1f\n", maiorNota(notas));
-            }else{
-                printf("Nenhuma nota cadastrada ainda.\n");
-            }
-            break;
-        case 0:
-            printf("Até mais!\n");
-            break;
-        default:
-            printf("Opção inválida!\n");
-            break;
         }
-    }while(opcao != 0);
+    }while(!acertou && usadas < MAX_TENTATIVAS);
+    printf("\n----- FIM DO JOGO -----\n");
+    if(acertou){
+        printf("Parabéns! Você acertou em %d tentativa(s).\n", usadas);
+    }else{
+        printf("Suas tentativas acabaram. O número era %d.\n", secreto);
+    }
+    printf("Histórico de palpites:\n");
+    for(int i = 0; i < usadas; i++){
+        printf("%d) %d\n", i + 1, tentativas[i]);
+    }
 
     return 0;
 }
