@@ -9,41 +9,25 @@ int main(){
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
     setlocale(LC_ALL, "pt-BR.UTF8");
 
-    const int MAX_TENTATIVAS = 7;
-    int tentativas[MAX_TENTATIVAS];
-    int secreto, palpite;
-    int usadas = 0, acertou = 0;
+    int cartela[5] = {3, 8, 12, 15, 10};
+    int sorteado[21] = {0};
+    int acertos = 0, rodadas = 0, bola;
     srand(time(NULL));
-    secreto = rand() % 100 + 1;
-    printf("Advinhe o número entre 1 e 100.\n");
-    printf("Você tem %d tentativas.\n", MAX_TENTATIVAS);
-    do{
-        printf("\nTentativa %d: ", usadas + 1);
-        scanf("%d", &palpite);
-        if(palpite < 1 || palpite > 100){
-            printf("Digite um número entre 1 e 100!\n");
-        }else{
-            tentativas[usadas] = palpite;
-            usadas++;
-            if(palpite == secreto){
-                acertou = 1;
-            }else if(palpite < secreto){
-                printf("O número secreto é MAIOR!\n");
-            }else{
-                printf("O número secreto é MENOR!\n");
+    while(acertos < 5){
+        do{
+            bola = rand() % 20 + 1;
+        }while(sorteado[bola]);
+        sorteado[bola] = 1;
+        rodadas++;
+        printf("Bola %d: %d\n", rodadas, bola);
+        for(int i = 0; i < 5; i++){
+            if(cartela[i] == bola){
+                acertos++;
+                printf("Acertou o %d! (%d de 5)\n", bola, acertos);
             }
         }
-    }while(!acertou && usadas < MAX_TENTATIVAS);
-    printf("\n----- FIM DO JOGO -----\n");
-    if(acertou){
-        printf("Parabéns! Você acertou em %d tentativa(s).\n", usadas);
-    }else{
-        printf("Suas tentativas acabaram. O número era %d.\n", secreto);
     }
-    printf("Histórico de palpites:\n");
-    for(int i = 0; i < usadas; i++){
-        printf("%d) %d\n", i + 1, tentativas[i]);
-    }
+    printf("\nBINGO em %d bolas!\n", rodadas);
 
     return 0;
 }
