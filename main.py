@@ -1,3 +1,5 @@
-int i = 0
-for i in range:
-    print(i)
+def apresentar(nome):
+    print(f"Olá, {nome}!")
+
+apresentar("Eduardo")
+    
