@@ -2,24 +2,23 @@
 #include<string.h>
 #include<locale.h>
 
-int maior(int a, int b){
-    if(a > b) return a;
-    return b;
-}
-
-int maior1(int a, int b, int c){
-    return maior(maior(a, b), c);
+float media(float notas[], int n){
+    float soma = 0;
+    for(int i = 0; i < n; i++){
+        soma += notas[i];
+    }
+    return soma / n;
 }
 
 int main(){
     
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
     setlocale(LC_ALL, "pt-BR.UTF8");
-
-    int x, y, z;
-    printf("Três números: ");
-    scanf("%d %d %d", &x, &y, &z);
-    printf("Maior: %d\n", maior(x, y, z));
-
+    float notas[5];
+    for(int i = 0; i < 5; i++){
+        printf("Nota %d: ", i + 1);
+        scanf("%f", &notas[i]);
+    }
+    printf("Média: %.1f\n", media(notas, 5));
     return 0;
 }
