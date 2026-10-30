@@ -2,23 +2,22 @@
 #include<string.h>
 #include<locale.h>
 
-int quadrado(int numero){
-    return numero * numero;
+void linha(int n){
+    for(int i = 0; i < n; i++){
+        printf("-");
+    printf("\n");
+    }
 }
+
 
 int main(){
     
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
     setlocale(LC_ALL, "pt-BR.UTF8");
 
-    int resultado;
-    int num;
-    printf("Digite um número: ");
-    scanf("%d", &num);
-
-    resultado = quadrado(num);
-
-    printf("O resultado é: %d", resultado);
+    linha(30);
+    printf("BEM-VINDO AO SISTEMA\n");
+    linha(30);
 
     return 0;
 }
