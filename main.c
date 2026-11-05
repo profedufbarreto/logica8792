@@ -2,34 +2,32 @@
 #include<string.h>
 #include<locale.h>
 
+int buscar(float vetor[], int tamanho, float chave){
+    for(int i = 0; i < tamanho; i++){
+        if(vetor[i] == chave){
+            return i;
+        }
+    }
+    return -1;
+}
+
 int main(){
     
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
     setlocale(LC_ALL, "pt-BR.UTF8");
-    
-    int m[2][3] = {
-        {1, 2, 3},
-        {4, 5, 6}
-    };
-    int t[3][2];
-    for(int i = 0; i < 2; i++){
-        for(int j = 0; j < 3; j++){
-            t[j][i] = m[i][j];
-        }
+    float numeros[] = {10.5, 20.5, 30.5, 40.5, 50.5};
+    int tamanho = 5;
+    float procurado;
+    printf("Digite o número que deseja procurar: ");
+    scanf("%f", &procurado);
+    int resultado = buscar(numeros, tamanho, procurado);
+    if(resultado != -1){
+        printf("Número encontrado!\n");
+        printf("Valor: %.2f\n", numeros[resultado]);
+        printf("Posição no vetor: %d\n", resultado);
+    }else{
+        printf("Número não encontrado!\n");
     }
-    printf("Original (2x3)\n");
-    for(int i = 0; i < 2; i++){
-        for(int j = 0; j < 3; j++){
-            printf("%d ", m[i][j]);
-        }
-        printf("\n");
-    }
-    printf("\nTransposta (3x2):\n");
-    for(int i = 0; i < 3; i++){
-        for(int j = 0; j < 2; j++){
-            printf("%d ", t[i][j]);
-        }
-        printf("\n");
-    }
+   
     return 0;
 }
