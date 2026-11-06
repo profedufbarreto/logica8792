@@ -1,5 +1,6 @@
-def apresentar(nome):
-    print(f"Olá, {nome}!")
+idade = 14
 
-apresentar("Eduardo")
-    
+if idade >= 18:
+    print("Bem-vindo!")
+else:
+    printf("Você precisa ser maior de idade!")

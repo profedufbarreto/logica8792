@@ -2,27 +2,19 @@
 #include<string.h>
 #include<locale.h>
 
-float lerPositivo(char mensagem[]){
-    float valor;
-    do{
-        printf("%s", mensagem);
-        scanf("%f", &valor);
-        if(valor <= 0){
-            printf("Valor inválido! Digite um número maior que 0.\n");
-        }
-    }while(valor <= 0);
-    return valor;
+void contar(int numero){
+    if(numero == 0){
+        return;
+    }
+    printf("%d\n", numero);
+    contar(numero - 1);
 }
 
 int main(){
     
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
     setlocale(LC_ALL, "pt-BR.UTF8");
-    float idade = lerPositivo("Digite a idade: ");
-    float peso = lerPositivo("Digite o peso (kg): ");
-    float altura = lerPositivo("Digite a altura (m): ");
-    printf("\nIdade: %.0f anos\n", idade);
-    printf("IMC: %f\n", peso / (altura * altura));
+    contar(5);    
 
     return 0;
 }
