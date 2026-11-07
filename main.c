@@ -2,22 +2,23 @@
 #include<string.h>
 #include<locale.h>
 
-int fibonacci(int n){
-    if(n == 0){
-        return 0;
-    }
-    if(n == 1){
+int palindromo(char palavra[], int inicio, int fim){
+    if(inicio >= fim){
         return 1;
     }
-    return fibonacci(n - 1) + fibonacci(n - 2);
+    if(palavra[inicio] != palavra[fim]){
+        return 0;
+    }
+    return palindromo(palavra, inicio + 1, fim - 1);
 }
-
 int main(){
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
     setlocale(LC_ALL, "pt-BR.UTF8");
-    int i;
-    for(i = 0; i < 10; i++){
-        printf("%d ", fibonacci(i));
+    char palavra[50] = "radar";
+    if(palindro(palavra, 0, strlen(palavra) - 1)){
+        printf("É palíndromo!\n");
+    }else{
+        printf("Não é palíndromo!\n");
     }
     
 
