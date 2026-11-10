@@ -2,24 +2,16 @@
 #include<string.h>
 #include<locale.h>
 
-int quadrado(int n){
-    return n * n;
-}
-
-int cubo(int n){
-    return n * n * n;
+int absoluto(int n){
+    if()
 }
 
 int main(){
     setlocale(LC_ALL, "Portuguese_Brazil.1252");
     setlocale(LC_ALL, "pt-BR.UTF8");
-    int num;
-    printf("Digite um número: ");
-    scanf("%d", &num);
-
-    printf("O resultado de %d ao quadrado é: %d\n", num, quadrado(num));
-    printf("O resultado de %d ao cubo é: %d\n", num, cubo(num));
-    
+    printf("%d\n", absoluto(-8));
+    printf("%d\n", absoluto(4));
+    printf("%d\n", absoluto(0));
 
 
     return 0;
